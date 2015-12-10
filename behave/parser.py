@@ -437,7 +437,7 @@ class Parser(object):
             self.state = 'steps'
             return self.action_steps(line)
 
-        cells = [cell.strip() for cell in re.split(r'(?<!\\)\|', s[1:-1])]
+        cells = [cell.strip() for cell in re.split(r'(?<!\\)\|', line)][1:-1]
         if self.table is None:
             self.table = model.Table(cells, self.line)
         else:
